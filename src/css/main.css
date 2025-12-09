@@ -13,6 +13,11 @@ video {
   display: block;
 }
 
+/* enable native smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-image: url('../img/grain-texture.png');
     background-size: auto;
@@ -186,6 +191,8 @@ body {
     width: 100%;
     margin-top: 300px;
     padding: 0 80px;
+    /* ensure anchor target sits slightly above to account for overlapping logo/header */
+    scroll-margin-top: 10px;
 }
 
 .section-title {
@@ -207,6 +214,9 @@ body {
     text-align: center;
     cursor: pointer;
     transition: 0.3s;
+    display: block;
+    text-decoration: none;
+    color: inherit;
 }
 
 .artist-card img {
@@ -377,6 +387,154 @@ body {
     font-weight: 600;
     opacity: 0.6;
 }
+
+
+/* ===== GLOBAL RESPONSIVE RULES ===== */
+@media (max-width: 1200px) {
+    .hero-header { padding-top: 110px; }
+    .logo-wrapper { width: 420px; height: 320px; }
+    .logo-container { transform: translateY(-70px); }
+    .hero-nav { gap: 14px; }
+    .social-icons img { width: 20px; }
+    .artists-grid, .shop-grid { gap: 24px; }
+}
+
+@media (max-width: 992px) {
+    .hero-header { padding-top: 90px; }
+    .logo-wrapper { width: 360px; height: 280px; }
+    .logo-container { transform: translateY(-55px); }
+    .logo { max-width: 520px; }
+    .hero-nav {
+        gap: 12px;
+        font-size: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .artists-grid { grid-template-columns: repeat(3, 1fr); }
+    .shop-grid { grid-template-columns: repeat(3, 1fr); }
+    .artist-card img, .shop-item img { height: 320px; }
+}
+
+@media (max-width: 768px) {
+    .hero-header { padding-top: 70px; }
+    .hero-text p { font-size: 12px; margin-bottom: 28px; }
+    .logo-wrapper { width: 320px; height: 240px; }
+    .logo-container { transform: translateY(-42px); }
+    .logo { width: 100%; max-width: 480px; }
+    .hero-nav { gap: 10px; font-size: 13px; }
+    .social-icons img { width: 16px; }
+    .artists-grid, .shop-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .artists-section, .shop-section { padding: 0 24px; margin-top: 140px; }
+    .section-title { font-size: 48px; }
+}
+
+@media (max-width: 480px) {
+    .hero-header { padding-top: 60px; }
+    .hero-text p { font-size: 11px; margin-bottom: 20px; }
+    .logo-wrapper { width: 260px; height: 180px; }
+    .logo-container { transform: translateY(-30px); }
+    .logo { max-width: 320px; }
+    .hero-nav { gap: 8px; font-size: 12px; }
+    .hero-nav a { padding: 2px 4px; }
+    .social-icons img { width: 14px; }
+    .artists-grid, .shop-grid { grid-template-columns: 1fr; gap: 18px; }
+    .artist-card img, .shop-item img { height: 240px; }
+    .section-title { font-size: 32px; margin-bottom: 28px; }
+    .footer { padding: 24px 16px; }
+    .footer-left p { font-size: 13px; }
+    .footer-links { font-size: 13px; }
+    .email-form input { width: 68%; }
+}
+
+
+
+/* ===== PARTYNEXTDOOR ===== */
+
+/* HEADER ARTIST PAGE */
+.artist-header {
+    position: fixed;
+    width: 100%;
+    padding: 25px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 999;
+}
+
+.artist-logo img {
+    width: 38px;
+    opacity: 0.9;
+}
+
+.artist-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: right;
+}
+
+.artist-nav a {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s ease;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 1.2px;
+    gap: 18px;
+}
+
+.artist-nav a:hover {
+    color: #cfa767; 
+}
+
+
+@media (max-width: 768px) {
+    .artist-header {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .artist-nav {
+        flex-direction: row;
+        gap: 15px;
+        font-size: 12px;
+    }
+
+    .artist-nav a {
+        font-size: 12px;
+    }
+}
+
+
+
+/* ===== ARTIST HERO ===== */
+
+.artist-hero {
+    width: 100%;
+    height: auto;
+    background: #ABB0B3; /* couleur utilisée dans l’image */
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+.artist-hero img {
+    width: auto;
+    height: 70vh;     /* garde le bon ratio */
+    object-fit: contain;
+    object-position: center;
+    display: block;
+}
+
+
+@media (max-width: 768px) {
+    .artist-hero img {
+        height: 55vh;
+    }
+}
+
 
 
 
